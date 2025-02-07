@@ -1,0 +1,16 @@
+{
+    "name": "senac/aluraplay",
+    "description": "Alura MVC rotas PHP",
+    "autoload": {
+        "psr-4": {
+            "Alura\\MVC\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "jffvale",
+            "email": "joao.freitas15@fatec.sp.gov.br"
+        }
+    ],
+    "require": {}
+}

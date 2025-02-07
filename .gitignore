@@ -1,0 +1,9 @@
+.idea/
+vendor/
+# banco.sqlite
+bancoVini.sqlite
+public/test.php
+public/wordForm.php
+public/.htaccess
+startVini.php
+*.rar
