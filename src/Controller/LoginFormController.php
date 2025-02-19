@@ -6,7 +6,7 @@ namespace Alura\Mvc\Controller;    // Defines the namespace of the file to be im
 
 class LoginFormController implements Controller{    // Defines the class LoginFormController that implements the Controller interface
     public function processaRequisicao(): void{    // Defines the method processaRequisicao that returns void
-        if($_SESSION['logado']){    // If the session is logged in
+        if(array_key_exists('logado', $_SESSION) && $_SESSION === true){ // If the session is logged in
             header('Location: /');    // Redirects to the home page
             return;    // Returns nothing
         }

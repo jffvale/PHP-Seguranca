@@ -30,11 +30,17 @@ function getEmbedUrl(string $url): string{  // Corrige a URL do vídeo para o fo
 
 <ul class="videos__container">
     <?php foreach ($videoList as $video): ?>
-        <li class="videos__item">
-            <iframe width="100%" height="72%" src="<?= getEmbedUrl($video->url); ?>"
-                    title="YouTube video player" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen></iframe>
+        <li class="videos__item">   <!-- As imagens estão armazenadas, mas elas precisam serem buscadas para exibir. -->
+            <?php if($video->getFilePath() !== null): ?> <!-- Se o vídeo tiver uma imagem, exibe a imagem -->
+            <a href="<?= $video->url; ?>"> <!-- Salvando o link para o vídeo, para mandar para o video correto, mas mostra a iamgem -->
+                <img src="/img/uploads/<?= $video->getFilePath(); ?>" alt="<?= $video->title; ?>" style="width: 100%">   <!-- Exibe a imagem do vídeo -->
+            </a>
+            <?php else: ?> <!-- Se não tiver imagem, exibe o vídeo. Exibe a imagem do vídeo abaixo -->
+                <iframe width="100%" height="72%" src="<?= getEmbedUrl($video->url); ?>"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+            <?php endif; ?>
             <div class="descricao-video">
                 <h3><?= $video->title; ?></h3>
                 <div class="acoes-video">

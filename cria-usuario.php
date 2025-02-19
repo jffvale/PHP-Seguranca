@@ -17,7 +17,7 @@ if ($argc < 3) {
 }
 
 // Para criar via php, usar o comando: php cria-usuario.php email senha
-// Exemplo: php cria-usuario.php "email@exemplo.com" "senha123456"
+// Exemplo: php cria-usuario.php "email@exemplo.com" "senha123456". Usuário e senha passados como argumentos, cadastrar no banco de dados
 
 // Receber os argumentos
 $email = $argv[1];  // O $arqv[1] é o primeiro argumento passado pelo usuário

@@ -11,3 +11,5 @@ $pdo->exec('CREATE TABLE IF NOT EXISTS users (
     email TEXT,
     password TEXT
 );');
+
+// Exemplo: php cria-usuario.php "email@exemplo.com" "senha123456". Usuário e senha passados como argumentos, cadastrar no banco de dados

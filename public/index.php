@@ -28,8 +28,9 @@ $httpMethod = $_SERVER['REQUEST_METHOD'];   // Recebe o método HTTP. GET, POST,
 
 
 // Verificar se o usuário está logado
-// Sempre que eu quiser verificar se o usuário está logado, eu sempre presiso iniciar a sessão
-session_start();
+// Sempre que eu quiser verificar se o usuário está logado, eu sempre preciso iniciar a sessão
+session_start();    // Verifica se foi enviado um cookie de sessão, se não, cria um novo.
+// Se já existir, ele pega o cookie e continua a sessão
 
 $isLoginRoute = $pathInfo === '/login'; // Verifica se a rota é a de login se sim, não precisa verificar se o usuário está logado
 // se não for feito isso, ele será redirecionado para a página de login em loop infinito, se não estiver logado
