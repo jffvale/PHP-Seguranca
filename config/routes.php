@@ -8,8 +8,11 @@ return [
     'POST|/novo-video' => \Alura\Mvc\Controller\NewVideoController::class,
     'GET|/editar-video' => \Alura\Mvc\Controller\VideoFormController::class,
     'POST|/editar-video' => \Alura\Mvc\Controller\EditVideoController::class,
+    // 'GET|/remover-image' => \Alura\Mvc\Controller\DeleteImageVideoController::class,
     'GET|/remover-video' => \Alura\Mvc\Controller\DeleteVideoController::class,
     'GET|/login' => \Alura\Mvc\Controller\LoginFormController::class,
     'POST|/login' => \Alura\Mvc\Controller\LoginController::class,
     'GET|/logout' => \Alura\Mvc\Controller\LogoutController::class,
+    'GET|/videos-json' => \Alura\Mvc\Controller\JsonVideoListController::class,
+    'POST|/videos' => \Alura\Mvc\Controller\NewJsonVideoController::class,
 ];

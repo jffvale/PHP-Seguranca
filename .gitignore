@@ -9,3 +9,4 @@ startVini.php
 info.php
 *.rar
 *.zip
+src/Controller/DeleteImageVideoController.php.old

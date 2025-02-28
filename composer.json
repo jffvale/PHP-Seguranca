@@ -3,7 +3,7 @@
     "description": "Alura MVC rotas PHP",
     "autoload": {
         "psr-4": {
-            "Alura\\MVC\\": "src/"
+            "Alura\\Mvc\\": "src/"
         }
     },
     "authors": [

@@ -32,6 +32,14 @@ class LoginController implements Controller{
         // Para comparar a senha do usuário com a senha do formulário, usamos a função password_verify se a senha estiver correta
         // Se a senha não estiver correta a função password_verify retorna valor vazio (?? '' - no final do code)
         $correctPassword = password_verify($password, $userData['password'] ?? ''); // Compares the password from the form with the password from the DB
+        
+        // Verificar se a senha precisa ser revalidada
+        if(password_needs_rehash($userData['password'], PASSWORD_ARGON2ID)){    // Verifies if the password needs to be rehashed, ponto para adicionar o novo algoritmo de hash a ser testado
+            $statement = $this->pdo->prepare('UPDATE users SET password = ? WHERE id = ?'); // Prepara a query para atualizar a senha do usuário
+            $statement->bindValue(1, password_hash($password, PASSWORD_ARGON2ID)); // Atualiza a senha do usuário com o algoritmo PASSWORD_ARGON2ID
+            $statement->bindValue(2, $userData['id']); // Atualiza a senha do usuário com o id do usuário
+            $statement->execute();   // Executa a query
+        }
         if ($correctPassword) {
             $_SESSION['logado'] = true; // Cria uma variável de sessão para indicar que o usuário está logado
             // Como agora eu tenho uma variável de sessão, eu posso verificar se o usuário está logado ou não em qualquer página que eu quiser

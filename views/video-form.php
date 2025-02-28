@@ -31,6 +31,18 @@ require_once __DIR__ . '/inicio-html.php';
 
         <div class="formulario__campo">
             <label class="campo__etiqueta" for="image">Imagem do vídeo</label>
+            <!-- mostra somente o conteudo do image_path no novo campo, abaixo -->
+            <label for="image">&emsp;&emsp;<?php echo ($video?->getFilePath() !== null) ? $video?->getFilePath() : "não há imagem selecionada"; ?></label>
+            <?php // Se o caminho da imagem não for nulo, define path como true
+            $path = false;
+            if($video !== null && $video->getFilePath() !== null){
+                $path = true;
+            } else {
+                $path = false;
+            }
+            ?>   <!-- Se o caminho da imagem não for nulo, define path como true -->
+            <input type="hidden" name="path" value="<?php echo $path; ?>">
+            <!-- Botão do tipo <input> com o nome "Deletar" -->
             <input name="image"
                 accept="image/*"
                 type="file"
